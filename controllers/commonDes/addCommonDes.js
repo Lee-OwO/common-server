@@ -4,7 +4,7 @@ const { getHost } = require("@utils");
 module.exports = async (ctx) => {
   const { description, user = 1 } = ctx.request.body;
   const host = getHost(ctx);
-  console.log(ctx, "=========");
+
   if (!description) {
     return ctx.returnError({ msg: "描述不能为空" });
   }

@@ -9,7 +9,6 @@ if (env === "production") {
     cert: fs.readFileSync("/root/.acme.sh/meizizi.me/meizizi.me.cer"),
   };
 }
-console.log(path.resolve(__dirname, "./public/static/img"));
 module.exports = {
   env,
   https,

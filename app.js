@@ -23,14 +23,10 @@ app.use(require("koa-static")(__dirname + "/public"));
 app.use(
   views(__dirname + "/views", {
     extension: "pug",
-    map: {
-      html: "pug",
-    },
   })
 );
 
 router.get("/", async (ctx) => {
-  console.log(123123);
   await ctx.render("index");
 });
 // routes
