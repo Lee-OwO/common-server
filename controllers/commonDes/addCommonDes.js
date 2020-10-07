@@ -1,5 +1,6 @@
 const mysql = require("@db/mysql");
 const { getHost } = require("@utils");
+const { v4: uuidv4 } = require("uuid");
 
 module.exports = async (ctx) => {
   const { description, user = 1 } = ctx.request.body;
@@ -8,7 +9,8 @@ module.exports = async (ctx) => {
   if (!description) {
     return ctx.returnError({ msg: "描述不能为空" });
   }
-  await mysql("web_des").insert({ description, user_id: user, host });
+  const id = uuidv4();
+  await mysql("web_des").insert({ id, description, user_id: user, host });
 
   ctx.returnSuccess({
     msg: "新增成功",

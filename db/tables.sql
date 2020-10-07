@@ -1,8 +1,10 @@
 DROP TABLE IF EXISTS `web_des`;
 
 CREATE TABLE `web_des` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(40),
   `description` varchar(30) NOT NULL,
+  `title` varchar(30),
+  `image` varchar(1000),
   `bg_image` varchar(1000),
   `bg_music` varchar(1000),
   `qrcode` varchar(1000),
