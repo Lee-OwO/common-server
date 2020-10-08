@@ -5,5 +5,9 @@ module.exports = async (ctx) => {
 
   const data = await mysql("web_des").select("*").where("id", id).first();
 
-  ctx.returnSuccess(data);
+  if (data) {
+    ctx.returnSuccess(data);
+  } else {
+    ctx.returnError("没找到相关信息");
+  }
 };

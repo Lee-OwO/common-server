@@ -7,10 +7,12 @@ const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
 const response = require("@root/middlewares/response");
 const router = require("@root/routes");
+const { historyApiFallback } = require("koa2-connect-history-api-fallback");
 
 // error handler
 onerror(app);
 app.use(response);
+app.use(historyApiFallback({ whiteList: ["/api"] }));
 app.use(
   bodyparser({
     enableTypes: ["json", "form", "text"],
@@ -26,9 +28,6 @@ app.use(
   })
 );
 
-router.get("/", async (ctx) => {
-  await ctx.render("index");
-});
 // routes
 app.use(router.routes());
 
