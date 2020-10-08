@@ -6,6 +6,7 @@
     "start": "cross-env NODE_ENV=production node bin/www",
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
     "prd": "cross-env NODE_ENV=production pm2 start bin/www",
+    "restart": "npm install && cross-env NODE_ENV=production pm2 restart bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
     "initdb": "node db/init"
   },
