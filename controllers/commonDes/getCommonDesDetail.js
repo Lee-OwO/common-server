@@ -8,6 +8,8 @@ module.exports = async (ctx) => {
   if (data) {
     ctx.returnSuccess(data);
   } else {
-    ctx.returnError("没找到相关信息");
+    ctx.returnError({
+      msg: "没找到相关信息",
+    });
   }
 };
