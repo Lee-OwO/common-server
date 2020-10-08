@@ -6,7 +6,8 @@ module.exports = async (ctx) => {
   const data = await mysql("web_des")
     .select("*")
     .limit(size)
-    .offset((page - 1) * size);
+    .offset((page - 1) * size)
+    .orderBy("id", "desc");
   const count = await mysql("web_des").count({ num: "*" }).first();
 
   ctx.returnSuccess({
