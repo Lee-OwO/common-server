@@ -9,8 +9,8 @@ module.exports = async (ctx) => {
   if (!description) {
     return ctx.returnError({ msg: "描述不能为空" });
   }
-  const id = uuidv4();
-  await mysql("web_des").insert({ id, description, user_id: user, host });
+  const tag = uuidv4();
+  await mysql("web_des").insert({ tag, description, user_id: user, host });
 
   ctx.returnSuccess({
     msg: "新增成功",

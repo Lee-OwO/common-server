@@ -1,9 +1,9 @@
 const mysql = require("@db/mysql");
 
 module.exports = async (ctx) => {
-  const { id } = ctx.request.query;
+  const { tag } = ctx.request.query;
 
-  const data = await mysql("web_des").select("*").where("id", id).first();
+  const data = await mysql("web_des").select("*").where("tag", tag).first();
 
   if (data) {
     ctx.returnSuccess(data);
